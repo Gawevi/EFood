@@ -4,8 +4,9 @@ export const Container = styled.section`
   width: 100%;
   padding-top: 32px;
   padding-bottom: 120px;
-  padding-left: 172px;
-  padding-right: 172px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const List = styled.ul`

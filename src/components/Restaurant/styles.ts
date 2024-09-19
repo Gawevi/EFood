@@ -24,8 +24,13 @@ export const Card = styled.div`
   div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
+`
+
+export const ContainerParaNota = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 export const ContainerParaTag = styled.div`

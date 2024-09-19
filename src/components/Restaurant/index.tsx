@@ -7,7 +7,8 @@ import {
   Titulo,
   Nota,
   ContainerParaTag,
-  ContainerParaBotao
+  ContainerParaBotao,
+  ContainerParaNota
 } from './styles'
 import estrela from '../../assets/images/estrela.png'
 
@@ -22,12 +23,12 @@ type Props = {
 const Restaurant = ({ title, nota, description, image, tags }: Props) => (
   <Card>
     <img src={image} alt={title} />
-    <div>
+    <ContainerParaNota>
       <Titulo>{title}</Titulo>
       <Nota>
         {nota} <img src={estrela} alt="estrela" />
       </Nota>
-    </div>
+    </ContainerParaNota>
     <ContainerParaTag>
       {tags.map((tag, index) => (
         <Tag
