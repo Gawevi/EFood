@@ -16,7 +16,7 @@ const Footer = () => (
       </CardContainer>
       <p>
         A efood é uma plataforma para divulgação de estabelecimentos, a
-        responsabilidade pela entrega, qualidade dos produtos é toda do
+        responsabilidade pela entrega, qualidade<br></br>dos produtos é toda do
         estabelecimento contratado.{' '}
       </p>
     </div>

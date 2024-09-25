@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const Container = styled.footer`
-  font-size: 10px;
   padding: 40px 0px;
   background-color: ${cores.begeEscuro};
   display: flex;
@@ -12,6 +11,10 @@ export const Container = styled.footer`
   align-items: center;
   text-align: center;
   width: 100%;
+
+  p {
+    font-size: 12px;
+  }
 `
 
 export const CardContainer = styled.div`
