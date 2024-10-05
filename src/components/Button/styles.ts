@@ -3,12 +3,13 @@ import { cores } from '../../styles'
 import { Props } from '.'
 
 export const ButtonContainer = styled.button<Props>`
-  color: ${(props) => (props.size === 'big' ? cores.laranja : cores.bege)};
+  color: ${(props) => (props.size === 'small' ? cores.bege : cores.laranja)};
   background-color: ${(props) =>
-    props.size === 'big' ? cores.bege : cores.laranja};
+    props.size === 'small' ? cores.laranja : cores.begeEscuro};
   font-size: 14px;
+  font-weight: bold;
   padding: 8px;
-  width: ${(props) => (props.size === 'big' ? '304px' : '88px')};
+  width: ${({ size }) => (size === 'big' ? '304px' : '88px')}
   height: 24px;
   border: none;
   cursor: pointer;

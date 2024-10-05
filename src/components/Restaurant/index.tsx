@@ -18,34 +18,44 @@ type Props = {
   description: string
   image: string
   tags: string[]
+  id: number
 }
 
-const Restaurant = ({ title, nota, description, image, tags }: Props) => (
-  <Card>
-    <img src={image} alt={title} />
-    <ContainerParaNota>
-      <Titulo>{title}</Titulo>
-      <Nota>
-        {nota} <img src={estrela} alt="estrela" />
-      </Nota>
-    </ContainerParaNota>
-    <ContainerParaTag>
-      {tags.map((tag, index) => (
-        <Tag
-          key={index}
-          type={tag === 'Destaque da semana' ? 'destaque' : 'comum'}
-        >
-          {tag}
-        </Tag>
-      ))}
-    </ContainerParaTag>
-    <Descricao>{description}</Descricao>
-    <ContainerParaBotao>
-      <Button size={'small'} title={'Saiba mais'}>
-        <Link to="/perfil">Saiba mais</Link>
-      </Button>
-    </ContainerParaBotao>
-  </Card>
-)
+const Restaurant = ({ title, nota, description, image, tags, id }: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 250) {
+      return descricao.slice(0, 247) + '...'
+    }
+    return descricao
+  }
+
+  return (
+    <Card>
+      <img src={image} alt={title} />
+      <ContainerParaNota>
+        <Titulo>{title}</Titulo>
+        <Nota>
+          {nota} <img src={estrela} alt="estrela" />
+        </Nota>
+      </ContainerParaNota>
+      <ContainerParaTag>
+        {tags.map((tag, index) => (
+          <Tag
+            key={index}
+            type={tag === 'Destaque da semana' ? 'destaque' : 'comum'}
+          >
+            {tag}
+          </Tag>
+        ))}
+      </ContainerParaTag>
+      <Descricao>{getDescricao(description)}</Descricao>
+      <ContainerParaBotao>
+        <Button size={'small'} title={'Saiba mais'}>
+          <Link to={`/perfil/${id}`}>Saiba mais</Link>
+        </Button>
+      </ContainerParaBotao>
+    </Card>
+  )
+}
 
 export default Restaurant

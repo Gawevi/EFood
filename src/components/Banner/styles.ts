@@ -26,7 +26,7 @@ export const Imagem = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 2;
+    z-index: 1;
     margin-left: 172px;
   }
 `

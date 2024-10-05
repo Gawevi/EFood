@@ -9,6 +9,11 @@ export const Card = styled.div`
   height: 346px;
   margin-bottom: 32px;
 
+  button {
+    width: 304px;
+    height: 24px;
+  }
+
   img {
     width: 304px;
     height: 168px;

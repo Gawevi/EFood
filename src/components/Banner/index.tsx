@@ -1,11 +1,19 @@
 import { Categoria, Imagem, Titulo } from './styles'
-import bannerImg from '../../assets/images/fundo_italiano.png'
 
-const Banner = () => (
-  <Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
+type Props = {
+  imagem: string
+  categoria: string
+  titulo: string
+}
+
+const Banner = ({ imagem, categoria, titulo }: Props) => (
+  <Imagem style={{ backgroundImage: `url(${imagem})` }}>
     <div className="container">
-      <Categoria>Italiana</Categoria>
-      <Titulo>La Dolce Vita Trattoria</Titulo>
+      <Categoria>
+        {categoria.charAt(0).toUpperCase()}
+        {categoria.slice(1)}
+      </Categoria>
+      <Titulo>{titulo}</Titulo>
     </div>
   </Imagem>
 )

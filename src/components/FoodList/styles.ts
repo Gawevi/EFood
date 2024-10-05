@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  padding-top: 24px;
-  padding-bottom: 120px;
-  padding-left: 172px;
-  padding-right: 172px;
   display: flex;
+  padding-bottom: 120px;
+  padding-top: 24px;
   justify-content: center;
   align-items: center;
 `
