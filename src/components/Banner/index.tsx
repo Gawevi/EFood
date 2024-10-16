@@ -9,11 +9,13 @@ type Props = {
 const Banner = ({ imagem, categoria, titulo }: Props) => (
   <Imagem style={{ backgroundImage: `url(${imagem})` }}>
     <div className="container">
-      <Categoria>
-        {categoria.charAt(0).toUpperCase()}
-        {categoria.slice(1)}
-      </Categoria>
-      <Titulo>{titulo}</Titulo>
+      <div className="teste">
+        <Categoria>
+          {categoria.charAt(0).toUpperCase()}
+          {categoria.slice(1)}
+        </Categoria>
+        <Titulo>{titulo}</Titulo>
+      </div>
     </div>
   </Imagem>
 )

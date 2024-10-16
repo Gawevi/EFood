@@ -17,6 +17,7 @@ const FoodList = ({ foods }: Props) => (
             image={food.foto}
             portion={food.porcao}
             price={food.preco}
+            comida={food}
           />
         </li>
       ))}

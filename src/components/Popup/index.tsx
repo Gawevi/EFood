@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { ModalContent, Modal } from './styles'
 import Button from '../Button'
 import fechar from '../../assets/images/close.png'
+import { add, open } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
+import { Comidas } from '../../pages/Perfil'
 
 type Props = {
   titulo: string
@@ -9,13 +12,16 @@ type Props = {
   porcao: string
   preco: string
   foto: string
+  comida?: Comidas
 }
 
 export interface ModalState {
   isVisible: boolean
 }
 
-const Popup = ({ descricao, foto, porcao, preco, titulo }: Props) => {
+const Popup = ({ comida, descricao, foto, porcao, preco, titulo }: Props) => {
+  const dispatch = useDispatch()
+
   const [modal, setModal] = useState<ModalState>({
     isVisible: false
   })
@@ -32,6 +38,15 @@ const Popup = ({ descricao, foto, porcao, preco, titulo }: Props) => {
     })
   }
 
+  const addToCart = () => {
+    if (comida) {
+      dispatch(add(comida))
+      dispatch(open())
+    } else {
+      alert('Erro')
+    }
+  }
+
   return (
     <>
       <div onClick={openModal}>
@@ -46,7 +61,7 @@ const Popup = ({ descricao, foto, porcao, preco, titulo }: Props) => {
             <h4>{titulo}</h4>
             <p>{descricao}</p>
             <p>Serve: de {porcao}</p>
-            <div>
+            <div onClick={addToCart}>
               <Button size={'big'} title={'Adicionar ao Carrinho'}>
                 Adicionar ao Carrinho - {preco}
               </Button>

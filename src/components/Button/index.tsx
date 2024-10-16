@@ -5,6 +5,7 @@ export type Props = {
   title: string
   to?: string
   children: React.ReactNode
+  onClick?: () => void
 }
 
 const Button = ({ size, title, to, children }: Props) => (

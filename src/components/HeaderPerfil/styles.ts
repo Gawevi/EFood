@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { cores } from '../../styles'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -19,4 +20,12 @@ export const Image = styled.div`
 export const Titulo = styled.h3`
   font-size: 18px;
   margin: 0;
+`
+
+export const Quantity = styled.p`
+  font-weight: bold;
+  font-size: 18px;
+  color: ${cores.laranja};
+  margin-top: 32px;
+  margin-bottom: 16px;
 `

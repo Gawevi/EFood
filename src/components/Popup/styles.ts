@@ -77,7 +77,7 @@ export const ModalContent = styled.div`
   }
 
   button {
-    width: 218px;
+    width: 222px;
     height: 24px;
   }
 `

@@ -1,6 +1,7 @@
 import Popup from '../Popup'
 import { Card, Descricao, Titulo } from './styles'
 import { formataPreco } from '../RestaurantList'
+import { Comidas } from '../../pages/Perfil'
 
 type Props = {
   title: string
@@ -8,9 +9,10 @@ type Props = {
   image: string
   portion: string
   price: number
+  comida: Comidas
 }
 
-const Food = ({ title, description, image, portion, price }: Props) => {
+const Food = ({ title, description, image, portion, price, comida }: Props) => {
   const getDescricao = (descricao: string) => {
     if (descricao.length > 150) {
       return descricao.slice(0, 147) + '...'
@@ -30,6 +32,7 @@ const Food = ({ title, description, image, portion, price }: Props) => {
           porcao={portion}
           preco={formataPreco(price)}
           foto={image}
+          comida={comida}
         />
       </Card>
     </>
