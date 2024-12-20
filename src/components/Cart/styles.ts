@@ -97,3 +97,173 @@ export const CartItem = styled.li`
     cursor: pointer;
   }
 `
+
+export const ContainerEntrega = styled.div`
+  padding-left: 8px;
+  margin: 0 auto;
+  color: ${cores.bege};
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 8px;
+  }
+
+  form {
+    label {
+      display: block;
+    }
+
+    input {
+      width: 328px;
+      height: 32px;
+      padding: 8px;
+      margin: 5px 0 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: ${cores.bege};
+      color: black;
+      font-size: 14px;
+    }
+  }
+
+  .botao-pagamento,
+  .botao-carrinho {
+    width: 328px;
+    height: 24px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: ${cores.laranja};
+    cursor: pointer;
+  }
+
+  .botao-pagamento {
+    margin-bottom: 8px;
+    margin-top: 24px;
+  }
+`
+
+export const CepNumero = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 48%;
+
+      input {
+        width: 155px;
+      }
+    }
+  }
+`
+
+export const ContainerPagamento = styled.div`
+  padding-left: 8px;
+  margin: 0 auto;
+  color: ${cores.bege};
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 16px;
+  }
+
+  form {
+    label {
+      display: block;
+    }
+
+    input {
+      width: 328px;
+      height: 32px;
+      padding: 8px;
+      margin: 5px 0 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: ${cores.bege};
+      color: black;
+      font-size: 14px;
+    }
+
+    .numeroCartao {
+      display: flex;
+
+      .numero {
+        margin-right: 30px;
+
+        input {
+          width: 220px;
+        }
+      }
+
+      .codigo {
+        input {
+          width: 80px;
+        }
+      }
+    }
+
+    .vencimento {
+      display: flex;
+
+      .mes {
+        margin-right: 30px;
+        input {
+          width: 150px;
+        }
+      }
+
+      .ano {
+        input {
+          width: 150px;
+        }
+      }
+    }
+
+    .botao-pagamento,
+    .botao-voltar {
+      width: 328px;
+      height: 24px;
+      border: none;
+      font-weight: bold;
+      font-size: 14px;
+      color: ${cores.laranja};
+      cursor: pointer;
+    }
+
+    .botao-pagamento {
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
+  }
+`
+
+export const ContainerConfirmacao = styled.div`
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 0 auto;
+  color: ${cores.bege};
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 16px;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 22px;
+  }
+
+  .botao-concluir {
+    width: 328px;
+    height: 24px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: ${cores.laranja};
+    cursor: pointer;
+  }
+`
