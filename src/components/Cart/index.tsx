@@ -36,7 +36,7 @@ const Cart = () => {
     code: '',
     expires: { month: '', year: '' }
   })
-  const [orderID, setOrderID] = useState<string | null>(null)
+  const [orderId, setOrderId] = useState<string | null>(null)
   const [purchase, { isLoading, data }] = usePurchaseMutation()
 
   const dispatch = useDispatch()
@@ -100,7 +100,7 @@ const Cart = () => {
 
     try {
       const response = await purchase(payload).unwrap()
-      setOrderID(response.orderID)
+      setOrderId(response.orderId)
       setIsOrderConfirmed(true)
     } catch (err) {
       console.error('Erro ao concluir pedido:', err)
@@ -184,6 +184,7 @@ const Cart = () => {
                   onChange={(e) =>
                     handleDeliveryChange('address', e.target.value)
                   }
+                  required
                 />
 
                 <label>Cidade</label>
@@ -191,6 +192,7 @@ const Cart = () => {
                   type="text"
                   value={deliveryInfo.city}
                   onChange={(e) => handleDeliveryChange('city', e.target.value)}
+                  required
                 />
 
                 <CepNumero>
@@ -202,6 +204,7 @@ const Cart = () => {
                       onChange={(e) =>
                         handleDeliveryChange('zipcode', e.target.value)
                       }
+                      required
                     />
                   </div>
                   <div>
@@ -212,6 +215,7 @@ const Cart = () => {
                       onChange={(e) =>
                         handleDeliveryChange('number', e.target.value)
                       }
+                      required
                     />
                   </div>
                 </CepNumero>
@@ -261,6 +265,7 @@ const Cart = () => {
                   type="text"
                   value={paymentInfo.name}
                   onChange={(e) => handlePaymentChange('name', e.target.value)}
+                  required
                 />
 
                 <div className="numeroCartao">
@@ -272,6 +277,7 @@ const Cart = () => {
                       onChange={(e) =>
                         handlePaymentChange('number', e.target.value)
                       }
+                      required
                     />
                   </div>
                   <div className="codigo">
@@ -282,6 +288,7 @@ const Cart = () => {
                       onChange={(e) =>
                         handlePaymentChange('code', e.target.value)
                       }
+                      required
                     />
                   </div>
                 </div>
@@ -295,6 +302,7 @@ const Cart = () => {
                       onChange={(e) =>
                         handlePaymentChange('month', e.target.value)
                       }
+                      required
                     />
                   </div>
                   <div className="ano">
@@ -305,6 +313,7 @@ const Cart = () => {
                       onChange={(e) =>
                         handlePaymentChange('year', e.target.value)
                       }
+                      required
                     />
                   </div>
                 </div>
@@ -339,7 +348,7 @@ const Cart = () => {
           />
           <Sidebar>
             <ContainerConfirmacao>
-              <h2>Pedido realizado - {data?.orderID}</h2>
+              <h2>Pedido realizado - {data?.orderId}</h2>
               <p>
                 Estamos felizes em informar que seu pedido já está em processo
                 de preparação e, em breve, será entregue no endereço fornecido.

@@ -32,7 +32,7 @@ type PurchasePayload = {
 }
 
 type PurchaseResponse = {
-  orderID: string
+  orderId: string
 }
 
 const api = createApi({
