@@ -83,7 +83,7 @@ const Cart = () => {
   }
 
   const validarPagamento = () => {
-    const erros = {}
+    const erros: Record<string, string> = {}
 
     if (!paymentInfo.name.trim()) {
       erros.name = 'O nome no cartão é obrigatório.'
