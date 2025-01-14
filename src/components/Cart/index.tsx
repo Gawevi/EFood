@@ -26,6 +26,16 @@ interface DeliveryInfo {
   complement: string
 }
 
+interface PaymentInfo {
+  name: string
+  number: string
+  code: string
+  expires: {
+    month: string
+    year: string
+  }
+}
+
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const [isDeliveryMode, setIsDeliveryMode] = useState(false)
@@ -39,7 +49,7 @@ const Cart = () => {
     number: '',
     complement: ''
   })
-  const [paymentInfo, setPaymentInfo] = useState({
+  const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>({
     name: '',
     number: '',
     code: '',
