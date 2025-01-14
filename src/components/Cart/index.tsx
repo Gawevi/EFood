@@ -42,48 +42,48 @@ const Cart = () => {
   const dispatch = useDispatch()
 
   const validarEntrega = () => {
-  const erros = {}
+    const erros = {}
 
-  if (!deliveryInfo.receiver.trim()) {
-    erros.receiver = 'O nome do destinatário é obrigatório.'
-  }
-  if (!deliveryInfo.address.trim()) {
-    erros.address = 'O endereço é obrigatório.'
-  }
-  if (!deliveryInfo.city.trim()) {
-    erros.city = 'A cidade é obrigatória.'
-  }
-  if (!/^\d{5}-?\d{3}$/.test(deliveryInfo.zipcode)) {
-    erros.zipcode = 'O CEP deve ser válido.'
-  }
-  if (!deliveryInfo.number.trim()) {
-    erros.number = 'O número é obrigatório.'
-  }
+    if (!deliveryInfo.receiver.trim()) {
+      erros.receiver = 'O nome do destinatário é obrigatório.'
+    }
+    if (!deliveryInfo.address.trim()) {
+      erros.address = 'O endereço é obrigatório.'
+    }
+    if (!deliveryInfo.city.trim()) {
+      erros.city = 'A cidade é obrigatória.'
+    }
+    if (!/^\d{5}-?\d{3}$/.test(deliveryInfo.zipcode)) {
+      erros.zipcode = 'O CEP deve ser válido.'
+    }
+    if (!deliveryInfo.number.trim()) {
+      erros.number = 'O número é obrigatório.'
+    }
 
-  return erros
-};
+    return erros
+  };
 
-const validarPagamento = () => {
-  const erros = {}
+  const validarPagamento = () => {
+    const erros = {}
 
-  if (!paymentInfo.name.trim()) {
-    erros.name = 'O nome no cartão é obrigatório.'
-  }
-  if (!/^\d{16}$/.test(paymentInfo.number)) {
-    erros.number = 'O número do cartão deve conter 16 dígitos.'
-  }
-  if (!/^\d{3}$/.test(paymentInfo.code)) {
-    erros.code = 'O CVV deve conter 3 dígitos.'
-  }
-  if (!/^\d{1,2}$/.test(paymentInfo.expires.month) || Number(paymentInfo.expires.month) > 12) {
-    erros.month = 'O mês de vencimento deve ser válido.'
-  }
-  if (!/^\d{4}$/.test(paymentInfo.expires.year)) {
-    erros.year = 'O ano de vencimento deve conter 4 dígitos.'
-  }
+    if (!paymentInfo.name.trim()) {
+      erros.name = 'O nome no cartão é obrigatório.'
+    }
+    if (!/^\d{16}$/.test(paymentInfo.number)) {
+      erros.number = 'O número do cartão deve conter 16 dígitos.'
+    }
+    if (!/^\d{3}$/.test(paymentInfo.code)) {
+      erros.code = 'O CVV deve conter 3 dígitos.'
+    }
+    if (!/^\d{1,2}$/.test(paymentInfo.expires.month) || Number(paymentInfo.expires.month) > 12) {
+      erros.month = 'O mês de vencimento deve ser válido.'
+    }
+    if (!/^\d{4}$/.test(paymentInfo.expires.year)) {
+      erros.year = 'O ano de vencimento deve conter 4 dígitos.'
+    }
 
-  return erros
-};
+    return erros
+  };
 
   const closeCart = () => {
     dispatch(close())
@@ -106,32 +106,32 @@ const validarPagamento = () => {
   }
 
   const entrega = () => {
-     const erros = validarEntrega()
-  if (Object.keys(erros).length === 0) {
-    setIsDeliveryMode(true)
-  } else {
-    alert('Por favor, preencha os campos obrigatórios antes de continuar.')
-  }
+       const erros = validarEntrega()
+    if (Object.keys(erros).length === 0) {
+      setIsDeliveryMode(true)
+    } else {
+      alert('Por favor, preencha os campos obrigatórios antes de continuar.')
+    }
   }
 
   const pagamento = () => {
     const pagamento = () => {
-  const erros = validarPagamento();
-  if (Object.keys(erros).length === 0) {
-    setIsPaymentMode(true)
-  } else {
-    alert('Por favor, corrija os erros nos campos de pagamento antes de continuar.')
+    const erros = validarPagamento();
+    if (Object.keys(erros).length === 0) {
+      setIsPaymentMode(true)
+    } else {
+      alert('Por favor, corrija os erros nos campos de pagamento antes de continuar.')
+    }
   }
-}
   }
 
   const finalizarPedido = async () => {
     const errosEntrega = validarEntrega()
     const errosPagamento = validarPagamento()
 
-    if (Object.keys(errosEntrega).length > 0 || Object.keys(errosPagamento).length > 0) {
-    alert('Por favor, corrija os erros antes de finalizar o pedido.')
-    return
+      if (Object.keys(errosEntrega).length > 0 || Object.keys(errosPagamento).length > 0) {
+      alert('Por favor, corrija os erros antes de finalizar o pedido.')
+      return
     }
     
     const payload = {
@@ -328,9 +328,7 @@ const validarPagamento = () => {
                 <input
                   type="text"
                   value={paymentInfo.name}
-                  onChange={(e) =>
-                    handlePaymentChange('name', e.target.value)
-                  }
+                  onChange={(e) => handlePaymentChange('name', e.target.value)}
                   required
                 />
 
@@ -348,9 +346,7 @@ const validarPagamento = () => {
                 <input
                   type="text"
                   value={paymentInfo.code}
-                  onChange={(e) =>
-                    handlePaymentChange('code', e.target.value)
-                  }
+                  onChange={(e) => handlePaymentChange('code', e.target.value)}
                   required
                 />
 
@@ -421,4 +417,3 @@ const validarPagamento = () => {
 }
 
 export default Cart
-
