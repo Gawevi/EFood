@@ -18,12 +18,12 @@ import { formataPreco } from '../RestaurantList'
 import { usePurchaseMutation } from '../../services/api'
 
 interface DeliveryInfo {
-  receiver: string;
-  address: string;
-  city: string;
-  zipcode: string;
-  number: string;
-  complement: string;
+  receiver: string
+  address: string
+  city: string
+  zipcode: string
+  number: string
+  complement: string
 }
 
 const Cart = () => {
