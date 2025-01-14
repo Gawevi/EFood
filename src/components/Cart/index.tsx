@@ -119,11 +119,13 @@ const Cart = () => {
 
   const pagamento = () => {
     const pagamento = () => {
-      const erros = validarPagamento();
+      const erros = validarPagamento()
       if (Object.keys(erros).length === 0) {
         setIsPaymentMode(true)
       } else {
-        alert('Por favor, corrija os erros nos campos de pagamento antes de continuar.')
+        alert(
+          'Por favor, corrija os erros nos campos de pagamento antes de continuar.'
+        )
       }
     }
   }
@@ -132,14 +134,14 @@ const Cart = () => {
     const errosEntrega = validarEntrega()
     const errosPagamento = validarPagamento()
 
-  if (
-    Object.keys(errosEntrega).length > 0 ||
-    Object.keys(errosPagamento).length > 0
+    if (
+      Object.keys(errosEntrega).length > 0 ||
+      Object.keys(errosPagamento).length > 0
     ) {
-        alert('Por favor, corrija os erros antes de finalizar o pedido.')
-        return
-      }
-    
+      alert('Por favor, corrija os erros antes de finalizar o pedido.')
+    return
+    }
+
     const payload = {
       products: items.map((item) => ({
         id: item.id,
