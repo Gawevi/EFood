@@ -140,7 +140,9 @@ const Cart = () => {
     const pagamento = () => {
       const erros = validarPagamento()
       if (Object.keys(erros).length > 0) {
-        alert('Por favor, corrija os erros nos campos de pagamento antes de continuar.')
+        alert(
+          'Por favor, corrija os erros nos campos de pagamento antes de continuar.'
+        )
       } else {
         setIsPaymentMode(true)
       }
