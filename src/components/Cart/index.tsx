@@ -139,7 +139,7 @@ const Cart = () => {
       Object.keys(errosPagamento).length > 0
     ) {
       alert('Por favor, corrija os erros antes de finalizar o pedido.')
-    return
+      return
     }
 
     const payload = {
