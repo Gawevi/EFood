@@ -130,9 +130,9 @@ const Cart = () => {
   const entrega = () => {
     const erros = validarEntrega()
     if (Object.keys(erros).length > 0) {
-      setIsDeliveryMode(true)
-    } else {
       alert('Por favor, preencha os campos obrigatórios antes de continuar.')
+    } else {
+      setIsDeliveryMode(true)
     }
   }
 
@@ -140,11 +140,9 @@ const Cart = () => {
     const pagamento = () => {
       const erros = validarPagamento()
       if (Object.keys(erros).length > 0) {
-        setIsPaymentMode(true)
+        alert('Por favor, corrija os erros nos campos de pagamento antes de continuar.')
       } else {
-        alert(
-          'Por favor, corrija os erros nos campos de pagamento antes de continuar.'
-        )
+        setIsPaymentMode(true)
       }
     }
   }
@@ -403,9 +401,17 @@ const Cart = () => {
                 <button
                   type="button"
                   onClick={finalizarPedido}
+                  className="botao-pagamento"
                   disabled={isLoading}
                 >
                   {isLoading ? 'Finalizando...' : 'Finalizar Pedido'}
+                </button>
+                <button
+                  type="button"
+                  className="botao-voltar"
+                  onClick={() => setIsPaymentMode(false)}
+                >
+                  Voltar para a edição de endereço
                 </button>
               </form>
             </ContainerPagamento>
@@ -422,19 +428,27 @@ const Cart = () => {
           />
           <Sidebar>
             <ContainerConfirmacao>
-              <h2>Pedido Confirmado!</h2>
-              <p>Seu pedido foi confirmado. Acompanhe o status no painel.</p>
-              <div className="button-container">
-                <Button
-                  title="Voltar para a página inicial"
-                  size="big"
-                  onClick={() => {
-                    closeCart()
-                  }}
-                >
-                  Voltar para a página inicial
-                </Button>
-              </div>
+              <h2>Pedido realizado - {data?.orderId}</h2>
+              <p>
+                Estamos felizes em informar que seu pedido já está em processo
+                de preparação e, em breve, será entregue no endereço fornecido.
+              </p>
+              <p>
+                Gostaríamos de ressaltar que nossos entregadores não estão
+                autorizados a realizar cobranças extras.
+              </p>
+              <p>
+                Lembre-se da importância de higienizar as mãos após o
+                recebimento do pedido, garantindo assim sua segurança e
+                bem-estar durante a refeição.
+              </p>
+              <p>
+                Esperamos que desfrute de uma deliciosa e agradável experiência
+                gastronômica. Bom apetite!
+              </p>
+              <button className="botao-concluir" onClick={clearCart}>
+                Concluir
+              </button>
             </ContainerConfirmacao>
           </Sidebar>
         </>
