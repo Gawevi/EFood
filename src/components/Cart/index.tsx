@@ -322,80 +322,67 @@ const validarPagamento = () => {
           />
           <Sidebar>
             <ContainerPagamento>
-              <h2>Pagamento - Valor a pagar {formataPreco(getTotalPrice())}</h2>
+              <h2>Pagamento</h2>
               <form className="pagamento-form">
                 <label>Nome no cartão</label>
                 <input
                   type="text"
                   value={paymentInfo.name}
-                  onChange={(e) => handlePaymentChange('name', e.target.value)}
+                  onChange={(e) =>
+                    handlePaymentChange('name', e.target.value)
+                  }
                   required
                 />
 
-                <div className="numeroCartao">
-                  <div className="numero">
-                    <label>Número do cartão</label>
-                    <input
-                      type="text"
-                      value={paymentInfo.number}
-                      onChange={(e) =>
-                        handlePaymentChange('number', e.target.value)
-                      }
-                      required
-                    />
-                  </div>
-                  <div className="codigo">
-                    <label>CVV</label>
-                    <input
-                      type="text"
-                      value={paymentInfo.code}
-                      onChange={(e) =>
-                        handlePaymentChange('code', e.target.value)
-                      }
-                      required
-                    />
-                  </div>
-                </div>
+                <label>Número do cartão</label>
+                <input
+                  type="text"
+                  value={paymentInfo.number}
+                  onChange={(e) =>
+                    handlePaymentChange('number', e.target.value)
+                  }
+                  required
+                />
 
-                <div className="vencimento">
-                  <div className="mes">
-                    <label>Mês de vencimento</label>
-                    <input
-                      type="text"
-                      value={paymentInfo.expires.month}
-                      onChange={(e) =>
-                        handlePaymentChange('month', e.target.value)
-                      }
-                      required
-                    />
-                  </div>
-                  <div className="ano">
-                    <label>Ano de vencimento</label>
-                    <input
-                      type="text"
-                      value={paymentInfo.expires.year}
-                      onChange={(e) =>
-                        handlePaymentChange('year', e.target.value)
-                      }
-                      required
-                    />
-                  </div>
+                <label>Código de segurança</label>
+                <input
+                  type="text"
+                  value={paymentInfo.code}
+                  onChange={(e) =>
+                    handlePaymentChange('code', e.target.value)
+                  }
+                  required
+                />
+
+                <label>Data de vencimento</label>
+                <div className="validade-cartao">
+                  <input
+                    type="text"
+                    maxLength={2}
+                    value={paymentInfo.expires.month}
+                    onChange={(e) =>
+                      handlePaymentChange('month', e.target.value)
+                    }
+                    required
+                  />
+                  <span>/</span>
+                  <input
+                    type="text"
+                    maxLength={4}
+                    value={paymentInfo.expires.year}
+                    onChange={(e) =>
+                      handlePaymentChange('year', e.target.value)
+                    }
+                    required
+                  />
                 </div>
 
                 <button
                   type="button"
-                  className="botao-pagamento"
                   onClick={finalizarPedido}
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Finalizando...' : 'Finalizar pagamento'}
-                </button>
-                <button
-                  type="button"
-                  className="botao-voltar"
-                  onClick={() => setIsPaymentMode(false)}
-                >
-                  Voltar para a edição de endereço
+                  {isLoading ? 'Finalizando...' : 'Finalizar Pedido'}
                 </button>
               </form>
             </ContainerPagamento>
@@ -412,27 +399,19 @@ const validarPagamento = () => {
           />
           <Sidebar>
             <ContainerConfirmacao>
-              <h2>Pedido realizado - {data?.orderId}</h2>
-              <p>
-                Estamos felizes em informar que seu pedido já está em processo
-                de preparação e, em breve, será entregue no endereço fornecido.
-              </p>
-              <p>
-                Gostaríamos de ressaltar que nossos entregadores não estão
-                autorizados a realizar cobranças extras.
-              </p>
-              <p>
-                Lembre-se da importância de higienizar as mãos após o
-                recebimento do pedido, garantindo assim sua segurança e
-                bem-estar durante a refeição.
-              </p>
-              <p>
-                Esperamos que desfrute de uma deliciosa e agradável experiência
-                gastronômica. Bom apetite!
-              </p>
-              <button className="botao-concluir" onClick={clearCart}>
-                Concluir
-              </button>
+              <h2>Pedido Confirmado!</h2>
+              <p>Seu pedido foi confirmado. Acompanhe o status no painel.</p>
+              <div className="button-container">
+                <Button
+                  title="Voltar para a página inicial"
+                  size="big"
+                  onClick={() => {
+                    closeCart()
+                  }}
+                >
+                  Voltar para a página inicial
+                </Button>
+              </div>
             </ContainerConfirmacao>
           </Sidebar>
         </>
@@ -442,3 +421,4 @@ const validarPagamento = () => {
 }
 
 export default Cart
+
