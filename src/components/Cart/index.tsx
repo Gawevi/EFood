@@ -51,7 +51,7 @@ const Cart = () => {
   const dispatch = useDispatch()
 
   const validarEntrega = () => {
-    const erros = {}
+    const erros: Record<string, string> = {}
 
     if (!deliveryInfo.receiver.trim()) {
       erros.receiver = 'O nome do destinatário é obrigatório.'
