@@ -61,7 +61,7 @@ const Cart = () => {
     }
 
     return erros
-  };
+  }
 
   const validarPagamento = () => {
     const erros = {}
@@ -75,7 +75,10 @@ const Cart = () => {
     if (!/^\d{3}$/.test(paymentInfo.code)) {
       erros.code = 'O CVV deve conter 3 dígitos.'
     }
-    if (!/^\d{1,2}$/.test(paymentInfo.expires.month) || Number(paymentInfo.expires.month) > 12) {
+    if (
+      !/^\d{1,2}$/.test(paymentInfo.expires.month) ||
+      Number(paymentInfo.expires.month) > 12
+    ) {
       erros.month = 'O mês de vencimento deve ser válido.'
     }
     if (!/^\d{4}$/.test(paymentInfo.expires.year)) {
@@ -83,7 +86,7 @@ const Cart = () => {
     }
 
     return erros
-  };
+  }
 
   const closeCart = () => {
     dispatch(close())
@@ -106,7 +109,7 @@ const Cart = () => {
   }
 
   const entrega = () => {
-       const erros = validarEntrega()
+    const erros = validarEntrega()
     if (Object.keys(erros).length === 0) {
       setIsDeliveryMode(true)
     } else {
@@ -116,23 +119,26 @@ const Cart = () => {
 
   const pagamento = () => {
     const pagamento = () => {
-    const erros = validarPagamento();
-    if (Object.keys(erros).length === 0) {
-      setIsPaymentMode(true)
-    } else {
-      alert('Por favor, corrija os erros nos campos de pagamento antes de continuar.')
+      const erros = validarPagamento();
+      if (Object.keys(erros).length === 0) {
+        setIsPaymentMode(true)
+      } else {
+        alert('Por favor, corrija os erros nos campos de pagamento antes de continuar.')
+      }
     }
-  }
   }
 
   const finalizarPedido = async () => {
     const errosEntrega = validarEntrega()
     const errosPagamento = validarPagamento()
 
-      if (Object.keys(errosEntrega).length > 0 || Object.keys(errosPagamento).length > 0) {
-      alert('Por favor, corrija os erros antes de finalizar o pedido.')
-      return
-    }
+  if (
+    Object.keys(errosEntrega).length > 0 ||
+    Object.keys(errosPagamento).length > 0
+    ) {
+        alert('Por favor, corrija os erros antes de finalizar o pedido.')
+        return
+      }
     
     const payload = {
       products: items.map((item) => ({
