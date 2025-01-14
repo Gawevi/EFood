@@ -17,12 +17,21 @@ import { close, remove, clear } from '../../store/reducers/cart'
 import { formataPreco } from '../RestaurantList'
 import { usePurchaseMutation } from '../../services/api'
 
+interface DeliveryInfo {
+  receiver: string;
+  address: string;
+  city: string;
+  zipcode: string;
+  number: string;
+  complement: string;
+}
+
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const [isDeliveryMode, setIsDeliveryMode] = useState(false)
   const [isPaymentMode, setIsPaymentMode] = useState(false)
   const [isOrderConfirmed, setIsOrderConfirmed] = useState(false)
-  const [deliveryInfo, setDeliveryInfo] = useState({
+  const [deliveryInfo, setDeliveryInfo] = useState<DeliveryInfo>({
     receiver: '',
     address: '',
     city: '',
