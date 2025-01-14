@@ -128,12 +128,7 @@ const Cart = () => {
   }
 
   const entrega = () => {
-    const erros = validarEntrega()
-    if (Object.keys(erros).length > 0) {
-      alert('Por favor, preencha os campos obrigatórios antes de continuar.')
-    } else {
-      setIsDeliveryMode(true)
-    }
+    setIsDeliveryMode(true)
   }
 
   const pagamento = () => {
