@@ -372,27 +372,29 @@ const Cart = () => {
                   required
                 />
 
-                <label>Data de vencimento</label>
-                <div className="validade-cartao">
-                  <input
-                    type="text"
-                    maxLength={2}
-                    value={paymentInfo.expires.month}
-                    onChange={(e) =>
-                      handlePaymentChange('month', e.target.value)
-                    }
-                    required
-                  />
-                  <span>/</span>
-                  <input
-                    type="text"
-                    maxLength={4}
-                    value={paymentInfo.expires.year}
-                    onChange={(e) =>
-                      handlePaymentChange('year', e.target.value)
-                    }
-                    required
-                  />
+                <div className="vencimento">
+                  <div className="mes">
+                    <label>Mês de vencimento</label>
+                    <input
+                      type="text"
+                      value={paymentInfo.expires.month}
+                      onChange={(e) =>
+                        handlePaymentChange('month', e.target.value)
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="ano">
+                    <label>Ano de vencimento</label>
+                    <input
+                      type="text"
+                      value={paymentInfo.expires.year}
+                      onChange={(e) =>
+                        handlePaymentChange('year', e.target.value)
+                      }
+                      required
+                    />
+                  </div>
                 </div>
 
                 <button
