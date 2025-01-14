@@ -129,7 +129,7 @@ const Cart = () => {
 
   const entrega = () => {
     const erros = validarEntrega()
-    if (Object.keys(erros).length === 0) {
+    if (Object.keys(erros).length > 0) {
       setIsDeliveryMode(true)
     } else {
       alert('Por favor, preencha os campos obrigatórios antes de continuar.')
@@ -139,7 +139,7 @@ const Cart = () => {
   const pagamento = () => {
     const pagamento = () => {
       const erros = validarPagamento()
-      if (Object.keys(erros).length === 0) {
+      if (Object.keys(erros).length > 0) {
         setIsPaymentMode(true)
       } else {
         alert(
